@@ -288,8 +288,10 @@ contract IncentiveLayer is DepositsManager {
     // @return – boolean
     function createTask(bytes32 initTaskHash, CodeType codeType, bytes32 bundleId, uint maxDifficulty, uint reward) public returns (bytes32) {
         bytes32 id = createTaskAux(initTaskHash, codeType, bundleId, maxDifficulty, reward);
+        // Hardcode output file to make it work, pls don't ever do this again
+        requireFile(id, fs.hashName("output.data"), 2);
         defaultParameters(id);
-	    commitRequiredFiles(id);
+        commitRequiredFiles(id);
         return id;
     }
 

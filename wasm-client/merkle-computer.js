@@ -33,6 +33,14 @@ const phaseTable = {
 
 
 function buildArgs(args, config) {
+    config.vm_parameters = {
+      "mem": 25,
+      "stack": 14,
+      "table": 8,
+      "globals": 8,
+      "call": 10
+    }
+
     if (config.actor.error) {
         args.push("-insert-error")
         args.push("" + config.actor.error_location)

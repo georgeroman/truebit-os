@@ -22,8 +22,8 @@ module.exports = {
             let difference = deposit.subtract(currentDeposit)
 
             if (difference.gt(0)) {
-                await tru.approve(incentiveLayer.address, difference.toString(10), { from: account, gasPrice: web3.gp })
-                await incentiveLayer.makeDeposit(difference.toString(10), { from: account, gasPrice: web3.gp })
+                await tru.approve(incentiveLayer.address, difference.toString(10), { from: account, gas: 3000000, gasPrice: web3.gp })
+                await incentiveLayer.makeDeposit(difference.toString(10), { from: account, gas: 3000000, gasPrice: web3.gp })
                 // console.log("difference", difference)
             }
         }
@@ -44,9 +44,9 @@ module.exports = {
             let difference = deposit.subtract(currentDeposit)
 
             if (difference.gt(0)) {
-                await tru.approve(incentiveLayer.address, difference.toString(10), { from: account, gasPrice: web3.gp })
+                await tru.approve(incentiveLayer.address, difference.toString(10), { from: account, gas: 3000000, gasPrice: web3.gp })
                 console.log("approved")
-                await incentiveLayer.makeRewardDeposit(difference.toString(10), { from: account, gasPrice: web3.gp })
+                await incentiveLayer.makeRewardDeposit(difference.toString(10), { from: account, gas: 3000000, gasPrice: web3.gp })
                 console.log("made deposit")
                 // console.log("difference", difference)
             }

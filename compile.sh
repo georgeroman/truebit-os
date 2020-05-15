@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Use solc ^0.5.0
+alias solc='~/.solcx/solc-v0.5.5'
+
 cd ./contracts/
 
 mkdir -p ../build
